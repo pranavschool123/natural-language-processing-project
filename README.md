@@ -2,23 +2,28 @@
 
 ## Introduction
 
-Natural language processing (NLP) is used in many apps and devices to interact with users and make meaning of text to determine how to respond, find information, or to create new text. Your goal is to use natural language processing techniques to identify structure, patterns, and meaning in a text to have conversations with a user, execute commands, perform manipulations on the text, or generate new text.
+Natural language processing (NLP) is used in many apps and devices to interact with users and derive meaning from text for tasks such as responding to commands, searching for information, or even generating new content. In this project, I applied NLP techniques to analyze and rate the complexity of user-entered sentences based on pre-defined word difficulty levels. The project demonstrates the use of object-oriented programming, ArrayLists, string manipulation, and algorithms.
 
 ## Requirements
 
-Use your knowledge of object-oriented programming, ArrayLists, the String class, and algorithms to create a program that uses natural language processing techniques:
+The project meets the following requirements:
+- **Create at least two ArrayLists:**  
+  The project utilizes multiple ArrayLists (e.g., `easyWords`, `mediumWords`, and `hardWords`) to store data from a text file.
+- **Implement one or more algorithms:**  
+  Custom algorithms process text by tokenizing input and calculating a complexity score using loops and conditionals.
+- **Use methods in the String class:**  
+  Methods such as `split()`, `substring()`, `toLowerCase()`, and `replaceAll()` are used to manipulate and analyze text.
+- **Use at least one natural language processing technique:**  
+  A simple NLP technique is implemented where the program analyzes a sentence to rate its complexity based on word difficulty.
+- **Document your code:**  
+  All key classes and methods are fully documented using Javadoc comments, and inline comments are provided for clarity.
 
-- **Create at least two ArrayLists** – Create at least two ArrayLists to store the data used in your program, such as data from text files or entered by the user.
-- **Implement one or more algorithms** – Implement one or more algorithms that use loops and conditionals to find or manipulate elements in an ArrayList or String object.
-- **Use methods in the String classs** - Use one or more methods in the String class in your program, such as to divide text into sentences or phrases.
-- **Use at least one natural language processing technique** – Use a natural language processing technique to process, analyze, and/or generate text.
-- **Document your code** – Use comments to explain the purpose of the methods and code segments and note any preconditions and postconditions.
 
 ## UML Diagram
 
-Put and image of your UML Diagram here. Upload the image of your UML Diagram to your repository, then use the Markdown syntax to insert your image here. Make sure your image file name is one word, otherwise it might not properly get display on this README.
+Put an image of your UML Diagram here. Upload the image of your UML Diagram to your repository, then use the Markdown syntax to insert your image here. Make sure your image file name is one word, otherwise it might not properly get display on this README.
 
-![UML Diagram for my project](nameOfImageFileHere.png)
+![Unit 6 UML](unit-6-uml-1.png)
 
 ## Video
 
@@ -30,12 +35,26 @@ Record a short video of your project to display here on your README. You can do 
 - Upload the thumbnail image to your repo.
 - Use the following markdown code:
 
-[![Thumbnail for my projet](nameOfThumbnail.png)](youtube-URL-here)
+![Unit 6 Project Thumbnail](unit-6-thumbnail.png)Here is a demonstration of my project running: (https://www.youtube.com/watch?v=EjIsXojiDyQ)
 
 ## Project Description
 
-Write a description of the goal and/or problem that your application. Include descriptions of what text is being analyzed, either if its text files you are using to interpret text an how the user interacts with your project.
+This project is designed to assess the complexity of a sentence entered by a user by comparing each word in the sentence against lists of easy, medium, and hard words stored in a text file. The `TextProcessor` class reads and converts the data from the file into ArrayLists, and the `SentenceRater` class processes a sentence entered by the user. Based on the difficulty of each word, a numerical complexity score is computed, and a descriptive level (Simple, Moderately Complex, or Very Complex) is provided. This application basically demonstrates the integration of file I/O, data processing, and natural language processing fundamentals.
 
 ## NLP Techniques
 
-Write a description of what natural lanugage technique (NLP) you implemented in your project. State which methods in your project are associated with this, and a brief explanation of how those methods word and how they are necessary in the NLP technique.
+The natural language processing technique implemented in this project involves both **tokenization** and **normalization**:
+
+- **Tokenization:**  
+  The user’s sentence is split into individual words (tokens) using the `split(" ")` method. This process converts the sentence into an array of words that can be individually analyzed.
+
+- **Normalization:**  
+  Each token is normalized by converting it to lowercase and removing any non-alphabetic characters using the methods `toLowerCase()` and `replaceAll("[^a-z]", "")`. This standardizes the text, ensuring that words are compared fairly against our difficulty lists regardless of their original format.
+
+- **Complexity Scoring:**  
+  The normalized tokens are then compared against three ArrayLists containing "easy," "medium," and "hard" words. Depending on which list a token is found in, it contributes 1, 2, or 3 points toward a cumulative complexity score. This score is then used to classify the sentence as "Simple," "Moderately Complex," or "Very Complex."
+
+The key methods associated with these techniques include:
+- `SentenceRater.inputSentence()`: Captures user input.
+- `SentenceRater.calculateComplexity()`: Performs tokenization, normalization, and scoring of the sentence.
+- `SentenceRater.getComplexityLevel()`: Determines the qualitative complexity level based on the score.
